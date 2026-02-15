@@ -1,0 +1,55 @@
+pipeline {
+    agent {
+        label 'Agent-1'
+    }
+    options {
+        timeout(time: 30, unit: 'MINUTES')
+        disableConcurrentBuilds()
+        ansiColor('xterm')
+    }
+    parameters{
+        string( name: 'appVersion', defaultValue:'1.0.0', description:'this is the app version')
+    }
+    stages {
+        stage('read the version'){
+            steps{
+              script{
+                echo "app version is ${params.appVersion}"
+              } 
+            
+            }
+        }
+
+        stage('init'){
+            steps{
+             sh """
+               cd terraform 
+               terraform init
+              """
+            }
+        }
+
+        stage('plan'){
+            steps{
+             sh """
+               cd terraform 
+               terraform plan -var="app_version=${params.appVersion}"
+              """
+            }
+        }
+
+        // stage('apply'){
+        //     steps{
+        //      sh """
+        //        cd terraform 
+        //        terraform apply -auto-approve
+        //       """
+        //     }
+        }
+   }
+    post { 
+        always { 
+            deleteDir()
+        }
+    }
+}
