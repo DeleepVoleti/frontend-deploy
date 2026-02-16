@@ -20,10 +20,10 @@ data "aws_ssm_parameter" "vpc_id" {
     name = "/${var.project_name}/${var.env}/vpc_id"
 }
 
-data "aws_ssm_parameter" "web_alb_listener_https_arn" {
-    name = "/${var.project_name}/${var.env}/web_alb_listner_https_arn"
+data "aws_ssm_parameter" "web_alb_listner_https_arn" {
+    name = "/${var.project_name}/${var.env}/web_alb_listener_https_arn"
 }
 
-data "aws_ssm_parameter" "web_alb_listener_http_arn" {
-    name = "/${var.project_name}/${var.env}/web_alb_listner_http_arn"
+data "aws_ssm_parameter" "web_alb_listner_http_arn" {
+    name = "/${var.project_name}/${var.env}/web_alb_listener_http_arn"
 }
