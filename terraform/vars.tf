@@ -2,7 +2,7 @@ variable "common_tags" {
     type = map
     default = {
         terraform = "true"
-        component = "frontend"
+        Component = "frontend"
     }
 }
 
