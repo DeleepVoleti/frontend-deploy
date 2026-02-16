@@ -45,7 +45,7 @@ pipeline {
         //        terraform apply -auto-approve
         //       """
         //     }
-        }
+        // }
    }
     post { 
         always { 
