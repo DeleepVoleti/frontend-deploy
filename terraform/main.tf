@@ -157,7 +157,7 @@ resource "aws_autoscaling_policy" "frontend" {
 }
 
 resource "aws_lb_listener_rule" "frontend" {
-  listener_arn = data.aws_ssm_parameter.web_alb_listener_https_arn.value
+  listener_arn = data.aws_ssm_parameter.web_alb_listner_https_arn.value
   priority     = 100 # less number will be first validated
 
   action {
